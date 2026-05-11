@@ -61,7 +61,7 @@ See the full diagram here:
 
 The project follows the Feature–Training–Inference (FTI) architecture.
 
-4.1 Feature Pipeline
+#### 4.1 Feature Pipeline
 
 The feature pipeline:
 
@@ -81,7 +81,7 @@ src/ingestion/article_scraper.py
 src/features/build_features.py
 src/features/build_live_features.py
 ```
-4.2 Training Pipeline
+#### 4.2 Training Pipeline
 
 The training pipeline:
 
@@ -97,7 +97,7 @@ src/training/train_baseline.py
 src/training/train_bert.py
 ```
 
-4.3 Inference Pipeline
+#### 4.3 Inference Pipeline
 
 The inference pipeline:
 
@@ -117,7 +117,7 @@ app/streamlit_app.py
 app/huggingface_app.py     
 ```
 
-4.4 Monitoring Pipeline
+#### 4.4 Monitoring Pipeline
 
 The monitoring pipeline:
 
@@ -221,7 +221,7 @@ real-time-news-credibility/
         └── ci.yml
 ```
 ## 7. Data Sources
-7.1 Static Training Data
+#### 7.1 Static Training Data
 
 The baseline model is trained using static datasets:
 
@@ -230,7 +230,7 @@ Contains political claims with truthfulness labels.
 Original labels are mapped to binary classes.
 FakeNewsNet
 Contains real and fake news articles from PolitiFact and GossipCop.
-7.2 Live Data
+#### 7.2 Live Data
 
 The live pipeline uses:
 
@@ -295,7 +295,7 @@ data/feature_store/live_news_features.parquet
 ```
 
 ## 10. Models
-10.1 Production Baseline Model
+#### 10.1 Production Baseline Model
 
 The main stable model is:
 ```
@@ -304,22 +304,22 @@ TF-IDF Vectorizer + Logistic Regression
 
 Why this model is used:
 
-fast to train,
-lightweight,
-reproducible,
-easy to deploy,
-stable inside Docker and Airflow.
+ - fast to train,
+ - lightweight,
+ - reproducible,
+ - easy to deploy,
+ - stable inside Docker and Airflow.
 
 This is the main model used by:
 
-FastAPI,
-Streamlit,
-Airflow live prediction pipeline,
-HuggingFace demo.
+- FastAPI,
+- Streamlit,
+- Airflow live prediction pipeline,
+- HuggingFace demo.
 
-10.2 Optional BERT Experiment
+#### 10.2 Optional BERT Experiment
 
-The original proposal listed BERT as the intended model.
+The original proposal listed BERT as the intended model.\
 The project includes an optional BERT experiment using:
 
 ```
@@ -334,25 +334,25 @@ python -m src.training.train_bert
 BERT is not used as the default deployed model because the course evaluates the MLOps pipeline more than raw accuracy, and the baseline model is more stable for automation and deployment.
 
 ## 11. Installation
-11.1 Clone Repository
+#### 11.1 Clone Repository
 ```
 git clone <your-repository-url>
 cd real-time-news-credibility
 ```
 
-11.2 Create Environment
+#### 11.2 Create Environment
 ```
 python -m venv .venv
 .venv\Scripts\activate
 ```
 
-11.3 Install Dependencies
+#### 11.3 Install Dependencies
 ```
 pip install -r requirements.txt
 ```
 
 ## 12. Running the Project Locally
-12.1 Run Static Data Pipeline
+#### 12.1 Run Static Data Pipeline
 
 ```
 python -m src.ingestion.load_static_data
@@ -365,7 +365,7 @@ data/processed/combined_news_dataset.parquet
 data/feature_store/news_features.parquet
 ```
 
-12.2 Train Baseline Model
+#### 12.2 Train Baseline Model
 ```
 python -m src.training.train_baseline
 ```
@@ -376,7 +376,7 @@ models/baseline_model.joblib
 mlruns/
 ```
 
-12.3 Run Live News Pipeline
+#### 12.3 Run Live News Pipeline
 ```
 python -m src.ingestion.rss_ingest
 python -m src.features.build_live_features
@@ -392,7 +392,7 @@ data/processed/live_news_predictions.csv
 reports/monitoring/prediction_monitoring_report.md
 ```
 
-12.4 Generate Evidently Drift Report
+#### 12.4 Generate Evidently Drift Report
 ```
 python -m src.monitoring.evidently_report
 ```
@@ -401,7 +401,7 @@ Output:
 reports/evidently/data_drift_report.html
 ```
 
-13. Run FastAPI Inference API
+## 13. Run FastAPI Inference API
 ```
 uvicorn src.inference.api:app --reload
 ```
@@ -426,7 +426,7 @@ Response
 }
 ```
 
-14. Run Streamlit UI
+## 14. Run Streamlit UI
 ```
 streamlit run app/streamlit_app.py
 ```
@@ -453,7 +453,7 @@ FastAPI:   http://localhost:8000/docs
 Streamlit: http://localhost:8501
 ```
 
-16. Run Airflow Automation
+## 16. Run Airflow Automation
 ```
 docker compose -f docker-compose.airflow.yml up --build
 ```
@@ -475,7 +475,7 @@ Dag runs
  - monitor_predictions
  - evidently_report
 
-17. MLflow Tracking
+## 17. MLflow Tracking
 Start MLflow UI:
 
 ```
@@ -497,7 +497,7 @@ Tracked information includes:
  - model artifacts,
  - model versions.
 
-18. Optional NewsAPI Ingestion
+## 18. Optional NewsAPI Ingestion
 Create a .env file:
 ```
 NEWSAPI_KEY=your_newsapi_key_here
@@ -512,7 +512,7 @@ data/raw/newsapi/newsapi_latest.parquet
 ```
 NewsAPI is optional. RSS feeds are used as the primary dynamic data source.
 
-19. Optional Article Scraping
+## 19. Optional Article Scraping
 ```
 python -m src.ingestion.article_scraper "https://www.bbc.com/news"
 ```
@@ -527,15 +527,15 @@ The scraper uses:
  - BeautifulSoup,
  - polite user-agent headers.
 
-20. Unit Tests
+## 20. Unit Tests
 ```
 python -m pytest
 ```
 
 The tests cover:
 
-feature engineering utilities,
-prediction formatting,
+feature engineering utilities,\
+prediction formatting,\
 ingestion ID generation.
 
 Test files:
@@ -545,7 +545,7 @@ tests/test_prediction_format.py
 tests/test_ingestion_utils.py
 ```
 
-21. GitHub Actions CI
+## 21. GitHub Actions CI
 The project includes a CI workflow:
 ```
 .github/workflows/ci.yml
@@ -558,8 +558,8 @@ The workflow:
 
 This supports reproducibility, automation, and code quality.
 
-22. HuggingFace Cloud Demo
-A lightweight Streamlit-only demo is prepared for HuggingFace Spaces.
+## 22. HuggingFace Cloud Demo
+A lightweight Streamlit-only demo is prepared for HuggingFace Spaces.\
 The HuggingFace version uses:
 
 ```
@@ -581,9 +581,9 @@ The full local system remains the main MLOps implementation because it includes:
  - monitoring,
  - live pipelines.
 
-23. Main Output Files
+## 23. Main Output Files
 | Output               | Path                                                 |
-| -------------------- | ---------------------------------------------------- |
+|---|---|
 | Combined dataset     | `data/processed/combined_news_dataset.parquet`       |
 | Static feature store | `data/feature_store/news_features.parquet`           |
 | Live RSS data        | `data/raw/live/live_news_latest.parquet`             |
@@ -594,7 +594,7 @@ The full local system remains the main MLOps implementation because it includes:
 | Local model          | `models/baseline_model.joblib`                       |
 | MLflow runs          | `mlruns/`                                            |
 
-24. Screenshots
+## 24. Screenshots
 
 | Screenshot              | Purpose                |
 | ----------------------- | ---------------------- |
@@ -608,7 +608,7 @@ The full local system remains the main MLOps implementation because it includes:
 | Monitoring report       | Monitoring proof       |
 | Evidently report        | Drift monitoring proof |
 
-25. Known Limitations
+## 25. Known Limitations
  - The baseline model is simple and not optimized for maximum accuracy.
  - The live RSS data does not contain ground-truth labels.
  - The credibility score is derived from model output and confidence logic, not human fact-checking.
@@ -616,7 +616,7 @@ The full local system remains the main MLOps implementation because it includes:
  - NewsAPI requires an external API key.
  - The HuggingFace Space is a lightweight inference demo, not the full Airflow/MLflow system.
 
-26. Future Improvements
+## 26. Future Improvements
 
 Possible extensions:
  - Deploy the full FastAPI + Streamlit system to a cloud service.
@@ -630,7 +630,7 @@ Possible extensions:
  - Add source-level credibility features.
  - Add more robust scraping with Playwright.
 
-27. Project Summary
+## 27. Project Summary
 
 This project demonstrates a complete live MLOps system for news credibility scoring.
 
@@ -651,7 +651,7 @@ It includes:
 
 The project follows the course objective of moving from static notebooks to an automated, live, cloud-ready machine learning system.
 
-28. Author
-Nishant Singh
-HSLU MLOps Project
+## 28. Author
+Nishant Singh\
+HSLU MLOps Project\
 Spring 2026
