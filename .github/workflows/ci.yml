@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Check imports
+        run: |
+          python -c "import pandas, sklearn, mlflow, fastapi, streamlit"
+        
+      - name: Run unit tests
+        run: |
+          python -m pytest
+
+      - name: Build Docker image
+        run: |
+          docker build -t news-credibility-system .

@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.venv/
+venv/
+env/
+.conda/
+.ipynb_checkpoints/
+
+# Secrets
+.env
+*.env
+secrets/
+*.key
+*.pem
+
+# Raw datasets and generated data
+data/raw/liar/
+data/raw/fakenewsnet/
+data/raw/live/
+data/raw/newsapi/
+data/raw/scraped/
+data/processed/
+data/feature_store/
+
+# Reports
+reports/
+
+# Models and MLflow local artifacts
+models/
+mlruns/
+mlartifacts/
+
+# BERT / training logs
+logs/
+runs/
+
+# Airflow local files
+airflow/logs/
+airflow/plugins/
+airflow/airflow.db
+airflow/webserver_config.py
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

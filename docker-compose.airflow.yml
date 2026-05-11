@@ -1,0 +1,31 @@
+services:
+  airflow:
+    image: apache/airflow:2.9.3-python3.11
+    container_name: news-credibility-airflow
+    entrypoint: /bin/bash
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/opt/airflow/project
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
+      AIRFLOW__WEBSERVER__SECRET_KEY: "news-credibility-secret"
+      PYTHONPATH: /opt/airflow/project
+    command:
+      - -c
+      - |
+        pip install feedparser mlflow scikit-learn pyarrow evidently
+        airflow db init
+        airflow users create \
+          --username admin \
+          --password admin \
+          --firstname Nishant \
+          --lastname Singh \
+          --role Admin \
+          --email admin@example.com || true
+        airflow webserver & airflow scheduler
