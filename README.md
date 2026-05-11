@@ -156,7 +156,7 @@ src/monitoring/evidently_report.py
 | Cloud Demo           | HuggingFace Spaces                  |
 
 ## 6. Repository Structure
-
+```text
 real-time-news-credibility/
 │
 ├── app/
@@ -219,7 +219,7 @@ real-time-news-credibility/
 └── .github/
     └── workflows/
         └── ci.yml
-
+```
 ## 7. Data Sources
 7.1 Static Training Data
 
