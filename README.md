@@ -32,7 +32,7 @@ The project follows the Feature–Training–Inference architecture.
 See the full diagram here:
 
 [Project Architecture](docs/architecture.md)
-![Architecture Diagram](docs/images/architecture.png)
+![Architecture Diagram](docs/images/Live%20News%20Prediction-2026-05-11-114240.png)
 
 ---
 
