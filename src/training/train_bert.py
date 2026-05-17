@@ -81,7 +81,7 @@ def main() -> None:
     df = df[["text", "label_id"]].dropna()
     df = df[df["text"].str.len() > 20]
 
-    # Keep BERT training lightweight for CPU/local demo
+    # Keeping BERT training lightweight for CPU/local demo
     if len(df) > MAX_SAMPLES:
         df = df.sample(MAX_SAMPLES, random_state=42)
 
