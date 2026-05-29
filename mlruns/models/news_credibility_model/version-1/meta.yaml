@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1780328846953
+current_stage: None
+description: null
+last_updated_timestamp: 1780328846953
+name: news_credibility_model
+run_id: 594299c007ff4452b70fd6496960664d
+run_link: null
+source: file:///D:/_HSLU/MLOPS/real-time-news-credibility/mlruns/589256343437365022/594299c007ff4452b70fd6496960664d/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///D:/_HSLU/MLOPS/real-time-news-credibility/mlruns/589256343437365022/594299c007ff4452b70fd6496960664d/artifacts/model
+user_id: null
+version: 1

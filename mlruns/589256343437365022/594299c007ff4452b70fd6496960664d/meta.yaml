@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/_HSLU/MLOPS/real-time-news-credibility/mlruns/589256343437365022/594299c007ff4452b70fd6496960664d/artifacts
+end_time: 1780328846995
+entry_point_name: ''
+experiment_id: '589256343437365022'
+lifecycle_stage: active
+run_id: 594299c007ff4452b70fd6496960664d
+run_name: baseline_tfidf_logreg
+run_uuid: 594299c007ff4452b70fd6496960664d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780328831862
+status: 3
+tags: []
+user_id: LENOVO

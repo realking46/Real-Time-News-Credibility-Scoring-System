@@ -1,0 +1,6 @@
+artifact_location: file:///D:/_HSLU/MLOPS/real-time-news-credibility/mlruns/589256343437365022
+creation_time: 1780328830019
+experiment_id: '589256343437365022'
+last_update_time: 1780328830019
+lifecycle_stage: active
+name: news_credibility_baseline
