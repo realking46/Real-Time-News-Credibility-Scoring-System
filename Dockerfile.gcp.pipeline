@@ -1,0 +1,19 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src/ ./src/
+COPY app/ ./app/
+COPY models/ ./models/
+COPY data/feature_store/news_features.parquet ./data/feature_store/
+
+RUN mkdir -p data/raw/live data/feature_store data/processed reports/monitoring reports/evidently
+
+ENV PYTHONPATH=/app
+
+CMD ["bash", "-c", "python -m src.ingestion.rss_ingest && python -m src.features.build_live_features && python -m src.inference.predict_live_news && python -m src.monitoring.prediction_monitor && python -m src.monitoring.evidently_report"]

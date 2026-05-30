@@ -1,0 +1,19 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src/ ./src/
+COPY app/ ./app/
+COPY models/ ./models/
+
+ENV PYTHONPATH=/app
+ENV PORT=8080
+
+EXPOSE 8080
+
+CMD ["streamlit", "run", "app/streamlit_app.py", "--server.address", "0.0.0.0", "--server.port", "8080", "--server.headless", "true", "--server.enableCORS", "false", "--server.enableXsrfProtection", "false"]
