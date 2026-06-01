@@ -32,15 +32,38 @@ The system:
 
 # 🎥 Demo
 ## Screenshots
+### Architechture
+<p align="center">
+  <img src="docs/images/Arch.png" width="45%">
+</p>
 
-Add screenshots for:
-- Streamlit UI
-- FastAPI Docs
-- MLflow Experiments
-- Airflow DAG
-- Cloud Composer
-- Cloud Run Services
-- Monitoring Reports
+### Streamlit
+<p align="center">
+  <a href="https://news-credibility-ui-727182253496.europe-west1.run.app/">
+    <img src="docs/images/Streamlit.png" width="45%">
+  </a>
+  <a href="https://news-credibility-ui-727182253496.europe-west1.run.app/">
+    <img src="docs/images/Streamlit2.png" width="45%">
+  </a>
+</p>
+
+### MLflow
+<p align="center">
+  <a href="https://news-credibility-mlflow-727182253496.europe-west1.run.app/">
+    <img src="docs/images/MLflow.png" width="45%">
+  </a>
+</p>
+
+### Evidently
+<p align="center">
+  <img src="docs/images/evidently.png" width="45%">
+</p>
+
+### Airflow UI
+<p align="center">
+  <img src="docs/images/Airflow_UI.png" width="45%">
+</p>
+
 
 ## Sample Prediction
 
@@ -368,7 +391,7 @@ python -m pytest
 
 # Cloud Deployment
 
-### epo link
+### repo link
 ```
 https://console.cloud.google.com/artifacts?project=graphic-outlook-489716-n6
 ```
@@ -413,7 +436,7 @@ real-time-news-credibility/
 
 ---
 
-# ⚠️ Technical Challenges
+## ⚠️ Technical Challenges
 
 1. Different RSS and dataset formats
 2. Cloud deployment of multiple services
@@ -431,7 +454,7 @@ Solutions:
 
 ---
 
-# 🔮 Future Work
+## 🔮 Future Work
 
 - DistilBERT deployment
 - Automated retraining
@@ -442,20 +465,19 @@ Solutions:
 
 ---
 
-# 📌 Known Limitations
+## 📌 Known Limitations
 
 - RSS data has no ground-truth labels
 - Baseline model prioritizes reproducibility
 - Credibility score is model-based
 - NewsAPI requires API keys
+- Does not auto train
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Nishant Singh**
-
-- IIT Roorkee
 - HSLU MLOps Project (Spring 2026)
 
 GitHub:
@@ -464,6 +486,6 @@ https://github.com/realking46
 
 ---
 
-# 📄 License
+## 📄 License
 
 Licensed under the MIT License.
