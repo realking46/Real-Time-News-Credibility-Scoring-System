@@ -31,15 +31,9 @@ The system:
 ---
 
 # 🎥 Demo
-
-## Demo Video
-
-Add demo video link here.
-
 ## Screenshots
 
 Add screenshots for:
-
 - Streamlit UI
 - FastAPI Docs
 - MLflow Experiments
@@ -270,6 +264,9 @@ pip install -r requirements.txt
 
 # 🔬 Reproducing Results
 
+### NOTE
+To showcase the prototype and working of this project, Some of the commands are listed below.
+
 ## Static Pipeline
 
 ```bash
@@ -368,6 +365,29 @@ Tracked information:
 ```bash
 python -m pytest
 ```
+
+# Cloud Deployment
+
+### epo link
+```
+https://console.cloud.google.com/artifacts?project=graphic-outlook-489716-n6
+```
+### Streamlit UI
+```
+https://news-credibility-ui-727182253496.europe-west1.run.app/
+```
+### Api
+```
+https://news-credibility-api-727182253496.europe-west1.run.app/
+```
+### MLflow
+```
+https://news-credibility-mlflow-727182253496.europe-west1.run.app/
+```
+### Airflow
+Cloud Composer Airflow is not publicly accessible by default for security reasons.
+So screenshots are added.
+
 
 ---
 
